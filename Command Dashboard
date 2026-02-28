@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ABC Logistics — Developer Profile</title>
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --accent: #6ee7ff;
+      --good: #7CFF6B;
+    }
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 20% 0%, rgba(110,231,255,0.18), transparent 55%),
+                  radial-gradient(900px 700px at 90% 15%, rgba(124,255,107,0.10), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+    }
+    .nav{
+      position: sticky;
+      top:0;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,0.65);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+    }
+    .menu a{
+      color: var(--muted);
+      text-decoration:none;
+      margin-left: 12px;
+    }
+    .menu a.active{
+      color: var(--text);
+      font-weight: 600;
+    }
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px 18px 42px;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    .box{
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.18);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .label{ font-size:12px; color: var(--muted); }
+    .value{ font-weight:600; }
+    .pill{
+      display:inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      margin-right: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <strong>ABC Logistics — Command Center</strong>
+      <div class="menu">
+        <a href="index.html">Dashboard</a>
+        <a class="active" href="about.html">Developer Profile</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <h1>Developer Profile</h1>
+      <p>Sarah — here are my details for future improvements, maintenance, and new dashboards.</p>
+
+      <div class="grid">
+        <div class="box">
+          <div class="label">Name</div>
+          <div class="value">Sheetle</div>
+          <p>Business student focused on MIS, operations, and practical dashboards.</p>
+        </div>
+
+        <div class="box">
+          <div class="label">Contact</div>
+          <div class="value">email@example.com</div>
+        </div>
+
+        <div class="box">
+          <div class="label">Skills</div>
+          <span class="pill">HTML/CSS</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">Chart.js</span>
+          <span class="pill">localStorage</span>
+        </div>
+
+        <div class="box">
+          <div class="label">What I built for ABC Logistics</div>
+          <div class="value">Inventory Command Center</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ABC Logistics — Command Center</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --accent: #6ee7ff;
+      --danger: #ff5a5f;
+      --good: #7CFF6B;
+    }
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 20% 0%, rgba(110,231,255,0.18), transparent 55%),
+                  radial-gradient(900px 700px at 90% 15%, rgba(124,255,107,0.10), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+    }
+
+    /* Nav */
+    .nav{
+      position: sticky;
+      top:0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,0.65);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--good));
+      box-shadow: 0 0 18px rgba(110,231,255,0.35);
+    }
+    .menu{
+      display:flex;
+      gap: 10px;
+    }
+    .menu a{
+      text-decoration:none;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    .menu a:hover{
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(255,255,255,0.04);
+    }
+    .menu a.active{
+      color: var(--text);
+      border-color: rgba(110,231,255,0.35);
+      background: rgba(110,231,255,0.08);
+    }
+
+    /* Layout */
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px 18px 42px;
+    }
+    .header{
+      display:flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .header h1{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: -0.3px;
+    }
+    .header p{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr 1.25fr;
+      gap: 14px;
+      align-items: start;
+    }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .card h2{
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+    }
+    .row{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr auto;
+      gap: 10px;
+      align-items: end;
+      margin-top: 10px;
+    }
+    @media (max-width: 560px){
+      .row{ grid-template-columns: 1fr; }
+    }
+
+    label{
+      display:block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    input{
+      width:100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.18);
+      color: var(--text);
+      outline:none;
+    }
+    input:focus{
+      border-color: rgba(110,231,255,0.55);
+      box-shadow: 0 0 0 4px rgba(110,231,255,0.10);
+    }
+
+    .btn{
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      cursor:pointer;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .btn:hover{ background: rgba(255,255,255,0.10); }
+    .btn.primary{
+      border-color: rgba(110,231,255,0.35);
+      background: rgba(110,231,255,0.10);
+    }
+    .btn.danger{
+      border-color: rgba(255,90,95,0.45);
+      background: rgba(255,90,95,0.10);
+    }
+
+    .error{
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,90,95,0.45);
+      background: rgba(255,90,95,0.10);
+      color: var(--text);
+      display:none;
+    }
+
+    table{
+      width:100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      overflow:hidden;
+      border-radius: 12px;
+    }
+    thead th{
+      text-align:left;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody td{
+      padding: 10px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    tbody tr:hover{
+      background: rgba(255,255,255,0.04);
+    }
+    .actions{
+      display:flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    .mini{
+      padding: 7px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+    }
+    .pill{
+      display:inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+    }
+    .pill.low{
+      border-color: rgba(255,90,95,0.45);
+      background: rgba(255,90,95,0.10);
+      color: rgba(255,255,255,0.85);
+    }
+    .footer-actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hint{
+      color: var(--muted);
+      font-size: 12px;
+    }
+    canvas{ width:100% !important; height: 340px !important; }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>ABC Logistics — Command Center</span>
+      </div>
+      <div class="menu">
+        <a class="active" href="index.html">Dashboard</a>
+        <a href="about.html">Developer Profile</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="header">
+      <h1>Warehouse Inventory Dashboard</h1>
+      <p>Enter items and quantities. Data persists using <span class="pill">localStorage</span> even after refresh.</p>
+    </div>
+
+    <div class="grid">
+      <!-- LEFT: Form + Table -->
+      <div class="card">
+        <h2>Add / Update an Item</h2>
+
+        <form id="itemForm" autocomplete="off">
+          <div class="row">
+            <div>
+              <label for="itemName">Item name</label>
+              <input id="itemName" type="text" placeholder="e.g., Pallet Wrap" maxlength="40" required />
+            </div>
+            <div>
+              <label for="itemQty">Quantity</label>
+              <!-- Phase 5: prevent alphanumeric: numeric input + validation -->
+              <input id="itemQty" type="number" inputmode="numeric" min="0" step="1" placeholder="e.g., 25" required />
+            </div>
+            <button class="btn primary" type="submit">Save Item</button>
+          </div>
+
+          <div id="errorBox" class="error"></div>
+        </form>
+
+        <div class="footer-actions">
+          <div class="hint">
+            Signature Move: <span class="pill low">Low stock &lt; 10 turns red</span>
+          </div>
+          <button id="clearAllBtn" class="btn danger">Clear All Items</button>
+        </div>
+
+        <h2 style="margin-top:16px;">Current Inventory</h2>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:45%;">Item</th>
+              <th style="width:20%;">Quantity</th>
+              <th style="width:35%; text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="itemsTbody"></tbody>
+        </table>
+      </div>
+
+      <!-- RIGHT: Chart -->
+      <div class="card">
+        <h2>Inventory Visualization</h2>
+        <p style="margin:0 0 10px; color: var(--muted); font-size: 13px;">
+          Bars update instantly when you add/edit/delete items.
+        </p>
+        <canvas id="invChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ====== Storage Helpers ======
+    const STORAGE_KEY = "abc_inventory_v1";
+
+    function loadItems() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveItems(items) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
+
+    // ====== State ======
+    let items = loadItems();
+
+    // ====== DOM ======
+    const form = document.getElementById("itemForm");
+    const itemNameEl = document.getElementById("itemName");
+    const itemQtyEl = document.getElementById("itemQty");
+    const tbody = document.getElementById("itemsTbody");
+    const errorBox = document.getElementById("errorBox");
+    const clearAllBtn = document.getElementById("clearAllBtn");
+
+    // ====== Validation (Phase 5) ======
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.style.display = "block";
+    }
+    function clearError() {
+      errorBox.textContent = "";
+      errorBox.style.display = "none";
+    }
+
+    function normalizeName(name) {
+      return name.trim().replace(/\s+/g, " ");
+    }
+
+    function isDuplicateName(name, ignoreIndex = -1) {
+      const target = name.toLowerCase();
+      return items.some((it, idx) => idx !== ignoreIndex && it.name.toLowerCase() === target);
+    }
+
+    function validateInputs(name, qty) {
+      if (!name) return "Item name is required.";
+      if (name.length < 2) return "Item name must be at least 2 characters.";
+
+      // qty must be an integer number, not negative, not NaN
+      if (qty === "" || qty === null || qty === undefined) return "Quantity is required.";
+      if (!Number.isFinite(qty)) return "Quantity must be a valid number.";
+      if (!Number.isInteger(qty)) return "Quantity must be a whole number.";
+      if (qty < 0) return "Quantity cannot be negative.";
+
+      return null;
+    }
+
+    // ====== Table Render ======
+    function renderTable() {
+      tbody.innerHTML = "";
+
+      if (items.length === 0) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td colspan="3" style="color: rgba(255,255,255,0.65); padding: 14px 10px;">
+          No items yet. Add your first item above.
+        </td>`;
+        tbody.appendChild(tr);
+        return;
+      }
+
+      items.forEach((it, idx) => {
+        const low = it.qty < 10;
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+          <td>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <strong>${escapeHtml(it.name)}</strong>
+              ${low ? `<span class="pill low">LOW</span>` : `<span class="pill">OK</span>`}
+            </div>
+          </td>
+          <td>${it.qty}</td>
+          <td>
+            <div class="actions">
+              <button class="btn mini" data-action="edit" data-idx="${idx}">Edit</button>
+              <button class="btn mini danger" data-action="delete" data-idx="${idx}">Delete</button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, (m) => ({
+        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
+      }[m]));
+    }
+
+    // ====== Chart (Phase 2 + Signature Move Option B) ======
+    const ctx = document.getElementById("invChart");
+    const chart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: [],
+        datasets: [{
+          label: "Quantity",
+          data: [],
+          backgroundColor: [],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: { beginAtZero: true, ticks: { precision: 0 } }
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: (tt) => `Quantity: ${tt.parsed.y}`
+            }
+          }
+        }
+      }
+    });
+
+    function updateChart() {
+      const labels = items.map(it => it.name);
+      const data = items.map(it => it.qty);
+
+      // Signature move: bars turn red if qty < 10
+      const colors = items.map(it => (it.qty < 10) ? "rgba(255,90,95,0.85)" : "rgba(110,231,255,0.75)");
+
+      chart.data.labels = labels;
+      chart.data.datasets[0].data = data;
+      chart.data.datasets[0].backgroundColor = colors;
+      chart.update();
+    }
+
+    // ====== CRUD ======
+    function addItem(name, qty) {
+      items.push({ name, qty });
+      saveItems(items);
+      renderTable();
+      updateChart();
+    }
+
+    function updateItem(idx, name, qty) {
+      items[idx] = { name, qty };
+      saveItems(items);
+      renderTable();
+      updateChart();
+    }
+
+    function deleteItem(idx) {
+      items.splice(idx, 1);
+      saveItems(items);
+      renderTable();
+      updateChart();
+    }
+
+    // ====== Events ======
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      clearError();
+
+      const name = normalizeName(itemNameEl.value);
+      const qtyRaw = itemQtyEl.value;
+
+      // Convert to number safely
+      const qty = Number(qtyRaw);
+
+      const msg = validateInputs(name, qty);
+      if (msg) return showError(msg);
+
+      // Phase 5: prevent duplicates (case-insensitive)
+      if (isDuplicateName(name)) {
+        return showError("That item already exists. Use Edit to change its quantity.");
+      }
+
+      addItem(name, qty);
+      itemNameEl.value = "";
+      itemQtyEl.value = "";
+      itemNameEl.focus();
+    });
+
+    tbody.addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+
+      const action = btn.dataset.action;
+      const idx = Number(btn.dataset.idx);
+
+      if (!Number.isInteger(idx) || idx < 0 || idx >= items.length) return;
+
+      if (action === "delete") {
+        const ok = confirm(`Delete "${items[idx].name}"?`);
+        if (ok) deleteItem(idx);
+        return;
+      }
+
+      if (action === "edit") {
+        // Simple edit flow: prompt for new qty and (optional) name
+        const current = items[idx];
+
+        const newNameRaw = prompt("Edit item name:", current.name);
+        if (newNameRaw === null) return; // cancelled
+        const newName = normalizeName(newNameRaw);
+
+        const newQtyRaw = prompt("Edit quantity (whole number):", String(current.qty));
+        if (newQtyRaw === null) return; // cancelled
+        const newQty = Number(newQtyRaw);
+
+        const msg = validateInputs(newName, newQty);
+        if (msg) return alert(msg);
+
+        if (isDuplicateName(newName, idx)) {
+          return alert("Another item already uses that name. Choose a unique name.");
+        }
+
+        updateItem(idx, newName, newQty);
+      }
+    });
+
+    // Phase 4: Clear all items button
+    clearAllBtn.addEventListener("click", () => {
+      if (items.length === 0) return alert("Nothing to clear.");
+      const ok = confirm("Clear ALL items? This cannot be undone.");
+      if (!ok) return;
+
+      items = [];
+      localStorage.removeItem(STORAGE_KEY);
+      renderTable();
+      updateChart();
+      clearError();
+    });
+
+    // ====== Initial load ======
+    renderTable();
+    updateChart();
+  </script>
+</body>
+</html>
