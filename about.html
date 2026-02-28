@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ABC Logistics — Developer Profile</title>
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --accent: #6ee7ff;
+      --good: #7CFF6B;
+    }
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 20% 0%, rgba(110,231,255,0.18), transparent 55%),
+                  radial-gradient(900px 700px at 90% 15%, rgba(124,255,107,0.10), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+    }
+    .nav{
+      position: sticky;
+      top:0;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,0.65);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+    }
+    .menu a{
+      color: var(--muted);
+      text-decoration:none;
+      margin-left: 12px;
+    }
+    .menu a.active{
+      color: var(--text);
+      font-weight: 600;
+    }
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px 18px 42px;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    .box{
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.18);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .label{ font-size:12px; color: var(--muted); }
+    .value{ font-weight:600; }
+    .pill{
+      display:inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      margin-right: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <strong>ABC Logistics — Command Center</strong>
+      <div class="menu">
+        <a href="index.html">Dashboard</a>
+        <a class="active" href="about.html">Developer Profile</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <h1>Developer Profile</h1>
+      <p>Sarah — here are my details for future improvements, maintenance, and new dashboards.</p>
+
+      <div class="grid">
+        <div class="box">
+          <div class="label">Name</div>
+          <div class="value">Sheetle</div>
+          <p>Business student focused on MIS, operations, and practical dashboards.</p>
+        </div>
+
+        <div class="box">
+          <div class="label">Contact</div>
+          <div class="value">email@example.com</div>
+        </div>
+
+        <div class="box">
+          <div class="label">Skills</div>
+          <span class="pill">HTML/CSS</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">Chart.js</span>
+          <span class="pill">localStorage</span>
+        </div>
+
+        <div class="box">
+          <div class="label">What I built for ABC Logistics</div>
+          <div class="value">Inventory Command Center</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
